@@ -1,4 +1,9 @@
-#Translated by Cool_boy and HIKC
+# Contributors
+#	Cool_boy 25-Nov-2016 — 16-Oct-2019
+#	HIKC
+#	Jerozgen 16-Jun-2019
+#	macross 05-May-2020
+
 # Загальні
 of.general.ambiguous=Невизначений
 of.general.compact=Компактний
@@ -54,18 +59,19 @@ of.message.loadingVisibleChunks=Завантажування видимих ча
 
 of.options.skinCustomisation.ofCape=Плащ OptiFine...
 
-# Налаштування графіки
-
 of.options.capeOF.title=Плащ
 of.options.capeOF.openEditor=Редактор плаща
 of.options.capeOF.reloadCape=Перезавантажити плащ
+of.options.capeOF.copyEditorLink=Копіювати посилання
 
 of.message.capeOF.openEditor=Редактор плаща OptiFine відкриєтся у браузері.
+of.message.capeOF.openEditorError=Помилка під час відкриття у браузері!
 of.message.capeOF.reloadCape=Ваш плащ перезавантажиться за 15 секунд.
 
 of.message.capeOF.error1=Аутентифікація не вдалася.
 of.message.capeOF.error2=Помилка: %s
 
+# Налаштування графіки
 
 options.graphics.tooltip.1=Якість графіки
 options.graphics.tooltip.2=  Швидка  - низька якість, швидше
@@ -136,6 +142,13 @@ options.anaglyph.tooltip.2=Вмикає стереоскопічний 3D ефе
 options.anaglyph.tooltip.3=для кожного ока.
 options.anaglyph.tooltip.4=Потребує червоно-сині окуляри для перегляду.
 
+options.attackIndicator.tooltip.1=Налаштовує позицію індикатора атаки
+options.attackIndicator.tooltip.2=  Хрестовина - під хрестовиною
+options.attackIndicator.tooltip.3=  Хотбар - коло хотбару
+options.attackIndicator.tooltip.4=  Вимк - без індикатора атаки
+options.attackIndicator.tooltip.5=Індикатор атаки показує силу атаки
+options.attackIndicator.tooltip.6=обраного предмета
+
 of.options.ALTERNATE_BLOCKS=Альтернативні блоки
 of.options.ALTERNATE_BLOCKS.tooltip.1=Альтернативні блоки
 of.options.ALTERNATE_BLOCKS.tooltip.2=Використовує альтернативні моделі для деяких блоків.
@@ -157,9 +170,9 @@ of.options.FOG_START.tooltip.4=Ця опція зазвичай не зменш�
 
 of.options.CHUNK_LOADING=Завантаження чанків
 of.options.CHUNK_LOADING.tooltip.1=Завантаження чанків
-of.options.CHUNK_LOADING.tooltip.2=  Базове - нестабільне FPS коли завантажується чанк
-of.options.CHUNK_LOADING.tooltip.3=  Згладжене - стабільне FPS
-of.options.CHUNK_LOADING.tooltip.4=  Multi-Core - стабільне FPS, 3x швидше завантаження світу
+of.options.CHUNK_LOADING.tooltip.2=  Базове - нестабільний FPS коли завантажується чанк
+of.options.CHUNK_LOADING.tooltip.3=  Згладжене - стабільний FPS
+of.options.CHUNK_LOADING.tooltip.4=  Multi-Core - стабільний FPS, 3x швидше завантаження світу
 of.options.CHUNK_LOADING.tooltip.5=Згладжене і Multi-Core видаляють заїкання та
 of.options.CHUNK_LOADING.tooltip.6=фрізи спричинені завантаженням чанків.
 of.options.CHUNK_LOADING.tooltip.7=Multi-Core може збільшити до 3 разів швидкість завантаження світу
@@ -435,7 +448,7 @@ of.options.CUSTOM_GUIS.tooltip.2=  Увімк - власні GUI (базово),
 of.options.CUSTOM_GUIS.tooltip.3=  Вимк - стандартні GUI, швидше
 of.options.CUSTOM_GUIS.tooltip.4=Власні GUI встановлюються ресурспаком.
 
-# Details
+# Деталі
 
 of.options.CLOUDS=Хмари
 of.options.CLOUDS.tooltip.1=Хмари
@@ -548,9 +561,16 @@ of.options.DYNAMIC_LIGHTS.tooltip.5=Дозволяє випромінювати 
 of.options.DYNAMIC_LIGHTS.tooltip.6=щоб освітлювати все навкруги, коли знаходяться в руці,
 of.options.DYNAMIC_LIGHTS.tooltip.7=вдягнуті іншим гравцем або викинуті на землю.
 
-# Performance
+options.biomeBlendRadius.tooltip.1=Пом'якшує переходи кольорів на межах біомів
+options.biomeBlendRadius.tooltip.2=  Вимк - без переходів (швидше)
+options.biomeBlendRadius.tooltip.3=  5x5 - стандартний перехід (базово)
+options.biomeBlendRadius.tooltip.4=  15x15 - максимальний перехід (повільно)
+options.biomeBlendRadius.tooltip.5=Великі значення можуть зменшувати FPS
+options.biomeBlendRadius.tooltip.6=і заповільнювати швидкість завантаження чанків.
 
-of.options.SMOOTH_FPS=Згладжене FPS
+# Продуктивність
+
+of.options.SMOOTH_FPS=Згладжений FPS
 of.options.SMOOTH_FPS.tooltip.1=Стабілізує FPS промиванням графічних буферів драйвера
 of.options.SMOOTH_FPS.tooltip.2=  Вимк - нема стабілізації, FPS може коливатись
 of.options.SMOOTH_FPS.tooltip.3=  Увімк - FPS стабілізується
@@ -578,7 +598,7 @@ of.options.FAST_MATH.tooltip.2= Вимк - стандартна математи
 of.options.FAST_MATH.tooltip.3= Увімк - швидша математика
 of.options.FAST_MATH.tooltip.4=Використовує оптимізовані функції sin() і cos(), що може краще
 of.options.FAST_MATH.tooltip.5=утилізувати  кеш, і збільшити FPS.
-of.options.FAST_MATH.tooltip.6=Ця опція може мати мінімальний вплив генерацію світу.
+of.options.FAST_MATH.tooltip.6=Ця опція може мати мінімальний вплив на генерацію світу.
 
 of.options.CHUNK_UPDATES=Оновлення чанків
 of.options.CHUNK_UPDATES.tooltip.1=Оновлення чанків
@@ -621,7 +641,7 @@ of.options.SMART_ANIMATIONS.tooltip.5=текстури, які видимі на
 of.options.SMART_ANIMATIONS.tooltip.6=Це зменшує лаги і покращує FPS.
 of.options.SMART_ANIMATIONS.tooltip.7=Особливо корисно для великих модпаків та HD ресурспаків.
 
-# Animations
+# Анімації
 
 of.options.animation.allOn=Всі Увімк
 of.options.animation.allOff=Всі Вимк
@@ -645,7 +665,7 @@ of.options.ANIMATED_TERRAIN=Анімація місцевості
 of.options.ANIMATED_TEXTURES=Анімація текстур
 of.options.FIREWORK_PARTICLES=Частинки феєрверку
 
-# Other
+# Інше
 
 of.options.LAGOMETER=Лагометр
 of.options.LAGOMETER.tooltip.1=Показує лагометр на екрані дебагу (F3).
@@ -701,7 +721,7 @@ of.options.SHOW_FPS.tooltip.2=  Fps - середній/мінімальний
 of.options.SHOW_FPS.tooltip.3=  C: - чанків відображається
 of.options.SHOW_FPS.tooltip.4=  E: - сутностей в рендері + блоковано сутностей
 of.options.SHOW_FPS.tooltip.5=  U: - чанків оновлюється
-of.options.SHOW_FPS.tooltip.6=Компактне FPS показується лиш коли
+of.options.SHOW_FPS.tooltip.6=Компактний FPS показується лиш коли
 of.options.SHOW_FPS.tooltip.7=екран відладки вимкнено.
 
 of.options.save.45s=45с

@@ -178,6 +178,7 @@ uniform vec4 entityColor;                       entity color multiplier (entity 
 uniform int entityId;                           entity ID
 uniform int blockEntityId;                      block entity ID (block ID for the tile entity, only for blocks specified in "block.properties")
 uniform ivec4 blendFunc;                        blend function (srcRGB, dstRGB, srcAlpha, dstAlpha)
+uniform int instanceId;                         instance ID when instancing is enabled (countInstances > 1), 0 = original, 1-N = copies
 
 GBuffers Uniforms
 ================= 
@@ -344,6 +345,7 @@ Source                                          Effect                          
 attribute <type> mc_Entity;                     useEntityAttrib = true
 attribute <type> mc_midTexCoord;                useMidTexCoordAttrib = true             
 attribute <type> at_tangent;                    useTangentAttrib = true
+const int countInstances = 1;                   when "countInstances > 1" the geometry will be rendered several times, see uniform "instanceId"
 
 Geometry Shader Configuration
 ===========================
@@ -422,6 +424,7 @@ const int noiseTextureResolution = 256;         noiseTextureResolution = 256
 /* GAUX4FORMAT:RGB16 */                         buffersFormat[7] = GL_RGB16
 const int <bufferIndex>Format = <format>;       bufferFormats[index] = <format>                            See "Buffer Index" and "Texture Formats"
 const bool <bufferIndex>Clear = false;          gbuffersClear[index] = false                               Skip glClear() for the given buffer, only for "composite" and "deferred" programs 
+const vec4 <bufferIndex>ClearColor = vec4();    gbuffersClearColor[index] = vec4(r, g, b, a)               Clear color for the given buffer, only for "composite" and "deferred" programs 
 const bool <bufferIndex>MipmapEnabled = true;   bufferMipmaps[index] = true                                Only for programs "composite" , "deferred" and "final"
 /* DRAWBUFFERS:0246 */                          drawBuffers = "0246"                                       Draw buffers 0, 2, 4 and 6
 
@@ -487,6 +490,46 @@ Texture Formats
  RGB10_A2
  R11F_G11F_B10F
  RGB9_E5
+
+Pixel Formats
+=============
+1. Normalized
+ RED
+ RG
+ RGB
+ BGR
+ RGBA
+ BGRA
+2. Integer
+ RED_INTEGER
+ RG_INTEGER
+ RGB_INTEGER
+ BGR_INTEGER
+ RGBA_INTEGER
+ BGRA_INTEGER
+
+Pixel Types
+===========
+ BYTE
+ SHORT
+ INT
+ HALF_FLOAT
+ FLOAT
+ UNSIGNED_BYTE
+ UNSIGNED_BYTE_3_3_2
+ UNSIGNED_BYTE_2_3_3_REV
+ UNSIGNED_SHORT
+ UNSIGNED_SHORT_5_6_5
+ UNSIGNED_SHORT_5_6_5_REV
+ UNSIGNED_SHORT_4_4_4_4
+ UNSIGNED_SHORT_4_4_4_4_REV
+ UNSIGNED_SHORT_5_5_5_1
+ UNSIGNED_SHORT_1_5_5_5_REV
+ UNSIGNED_INT
+ UNSIGNED_INT_8_8_8_8
+ UNSIGNED_INT_8_8_8_8_REV
+ UNSIGNED_INT_10_10_10_2
+ UNSIGNED_INT_2_10_10_10_REV
 
 Block ID mapping
 ================

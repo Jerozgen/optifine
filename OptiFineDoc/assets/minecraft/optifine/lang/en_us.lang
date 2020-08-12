@@ -33,6 +33,9 @@ of.message.shaders.af2=Please set Quality -> Anisotropic Filtering to OFF.
 of.message.shaders.fr1=Shaders are not compatible with Fast Render.
 of.message.shaders.fr2=Please set Performance -> Fast Render to OFF.
 
+of.message.shaders.gf1=Shaders are not compatible with Fabulous Graphics.
+of.message.shaders.gf2=Please set Graphics to Fast or Fancy.
+
 of.message.shaders.an1=Shaders are not compatible with 3D Anaglyph.
 of.message.shaders.an2=Please set Other -> 3D Anaglyph to OFF.
 
@@ -56,8 +59,10 @@ of.options.skinCustomisation.ofCape=OptiFine Cape...
 of.options.capeOF.title=OptiFine Cape
 of.options.capeOF.openEditor=Open Cape Editor
 of.options.capeOF.reloadCape=Reload Cape
+of.options.capeOF.copyEditorLink=Copy Link To Clipboard
 
 of.message.capeOF.openEditor=The OptiFine cape editor should open in a web browser.
+of.message.capeOF.openEditorError=Error opening the editor link in a web browser.
 of.message.capeOF.reloadCape=The cape will be reloaded in 15 seconds.
 
 of.message.capeOF.error1=Mojang authentication failed.
@@ -66,10 +71,12 @@ of.message.capeOF.error2=Error: %s
 # Video settings
 
 options.graphics.tooltip.1=Visual quality
-options.graphics.tooltip.2=  Fast  - lower quality, faster
+options.graphics.tooltip.2=  Fast - lower quality, faster
 options.graphics.tooltip.3=  Fancy - higher quality, slower
-options.graphics.tooltip.4=Changes the appearance of clouds, leaves, water,
-options.graphics.tooltip.5=shadows and grass sides.
+options.graphics.tooltip.4=  Fabulous - better translucent objects, slowest
+options.graphics.tooltip.5=Changes the appearance of clouds, leaves, water,
+options.graphics.tooltip.6=shadows and grass sides.
+options.graphics.tooltip.7=Fabulous graphics is not compatible with shaders.
 
 of.options.renderDistance.tiny=Tiny
 of.options.renderDistance.short=Short
@@ -87,6 +94,12 @@ options.renderDistance.tooltip.5=  32 Extreme - 512m (slowest!) very resource de
 options.renderDistance.tooltip.6=  48 Insane - 768m, needs 2GB RAM allocated
 options.renderDistance.tooltip.7=  64 Ludicrous - 1024m, needs 3GB RAM allocated
 options.renderDistance.tooltip.8=Values over 16 Far are only effective in local worlds.
+
+options.entityDistanceScaling.tooltip.1=Entity render distance
+options.entityDistanceScaling.tooltip.2=  50%% - faster
+options.entityDistanceScaling.tooltip.3=  100%% - default
+options.entityDistanceScaling.tooltip.4=  500%% - slower
+options.entityDistanceScaling.tooltip.5=Modifies the maximum distance at which entities are shown.
 
 options.ao.tooltip.1=Smooth lighting
 options.ao.tooltip.2=  OFF - no smooth lighting (faster)
@@ -134,6 +147,13 @@ options.anaglyph.tooltip.2=Enables a stereoscopic 3D effect using different colo
 options.anaglyph.tooltip.3=for each eye.
 options.anaglyph.tooltip.4=Requires red-cyan glasses for proper viewing.
 
+options.attackIndicator.tooltip.1=Configures the position of the attack indicator
+options.attackIndicator.tooltip.2=  Crosshair - under the crosshair
+options.attackIndicator.tooltip.3=  Hotbar - next to the hotbar
+options.attackIndicator.tooltip.4=  OFF - no attack indicator
+options.attackIndicator.tooltip.5=The attack indicator shows the attack power of the
+options.attackIndicator.tooltip.6=currently equipped item
+
 of.options.ALTERNATE_BLOCKS=Alternate Blocks
 of.options.ALTERNATE_BLOCKS.tooltip.1=Alternate Blocks
 of.options.ALTERNATE_BLOCKS.tooltip.2=Uses alternative block models for some blocks.
@@ -178,7 +198,7 @@ of.options.shaders.ANTIALIASING.tooltip.3=  FXAA 2x, 4x - antialiased lines and 
 of.options.shaders.ANTIALIASING.tooltip.4=FXAA is a post-processing effect which smooths
 of.options.shaders.ANTIALIASING.tooltip.5=jagged lines and sharp color transitions.
 of.options.shaders.ANTIALIASING.tooltip.6=It is faster than traditional antialiasing
-of.options.shaders.ANTIALIASING.tooltip.7=and is compatible with shaders and Fast Render.  
+of.options.shaders.ANTIALIASING.tooltip.7=and is compatible with shaders.  
 
 of.options.shaders.NORMAL_MAP=Normal Map
 of.options.shaders.NORMAL_MAP.tooltip.1=Normal Map
@@ -546,6 +566,13 @@ of.options.DYNAMIC_LIGHTS.tooltip.5=Enables light emitting items (torch, glowsto
 of.options.DYNAMIC_LIGHTS.tooltip.6=to illuminate everything around them when held in hand,
 of.options.DYNAMIC_LIGHTS.tooltip.7=equipped by other player or dropped on the ground.
 
+options.biomeBlendRadius.tooltip.1=Smooths the color transition between biomes
+options.biomeBlendRadius.tooltip.2=  OFF - no blending (fastest)
+options.biomeBlendRadius.tooltip.3=  5x5 - normal blending (default)
+options.biomeBlendRadius.tooltip.4=  15x15 - maximal blending (slowest)
+options.biomeBlendRadius.tooltip.5=Higher values may generate significant lag spikes
+options.biomeBlendRadius.tooltip.6=and slow down the chunk loading speed.
+
 # Performance
 
 of.options.SMOOTH_FPS=Smooth FPS
@@ -567,7 +594,7 @@ of.options.FAST_RENDER.tooltip.1=Fast Render
 of.options.FAST_RENDER.tooltip.2= OFF - standard rendering (default)
 of.options.FAST_RENDER.tooltip.3= ON - optimized rendering (faster)
 of.options.FAST_RENDER.tooltip.4=Uses optimized rendering algorithm which decreases
-of.options.FAST_RENDER.tooltip.5=the GPU load and may substantially increase the FPS.
+of.options.FAST_RENDER.tooltip.5=the CPU load and may substantially increase the FPS.
 of.options.FAST_RENDER.tooltip.6=This option can conflict with some mods.
 
 of.options.FAST_MATH=Fast Math
@@ -604,16 +631,16 @@ of.options.LAZY_CHUNK_LOADING.tooltip.7=Effective only for local worlds (single-
 
 of.options.RENDER_REGIONS=Render Regions
 of.options.RENDER_REGIONS.tooltip.1=Render Regions
-of.options.RENDER_REGIONS.tooltip.2= OFF - do not use render regions (default)
-of.options.RENDER_REGIONS.tooltip.3= ON - use render regions
-of.options.RENDER_REGIONS.tooltip.4=Render regions allow faster terrain rendering at higher
-of.options.RENDER_REGIONS.tooltip.5=render distances. More effective when VBOs are enabled.
+of.options.RENDER_REGIONS.tooltip.2= OFF - vanilla rendering (default)
+of.options.RENDER_REGIONS.tooltip.3= ON - use render regions (faster)
+of.options.RENDER_REGIONS.tooltip.4=Allows faster terrain rendering by optimizing
+of.options.RENDER_REGIONS.tooltip.5=the GPU load. More effective at higher render distances.  
 of.options.RENDER_REGIONS.tooltip.6=Not recommended for integrated graphics cards.
 
 of.options.SMART_ANIMATIONS=Smart Animations
 of.options.SMART_ANIMATIONS.tooltip.1=Smart Animations
 of.options.SMART_ANIMATIONS.tooltip.2= OFF - do not use smart animations (default)
-of.options.SMART_ANIMATIONS.tooltip.3= ON - use smart animations
+of.options.SMART_ANIMATIONS.tooltip.3= ON - use smart animations (faster)
 of.options.SMART_ANIMATIONS.tooltip.4=With smart animations the game will only animate the 
 of.options.SMART_ANIMATIONS.tooltip.5=textures which are currently visible on the screen.
 of.options.SMART_ANIMATIONS.tooltip.6=This reduces the tick lag spikes and increases the FPS.
@@ -686,12 +713,12 @@ options.fullscreen.tooltip.3=  OFF - use window mode
 options.fullscreen.tooltip.4=Fullscreen mode may be faster or slower than
 options.fullscreen.tooltip.5=window mode, depending on the graphics card.
 
-of.options.FULLSCREEN_MODE=Fullscreen Mode
-of.options.FULLSCREEN_MODE.tooltip.1=Fullscreen mode
-of.options.FULLSCREEN_MODE.tooltip.2=  Default - use desktop screen resolution, slower
-of.options.FULLSCREEN_MODE.tooltip.3=  WxH - use custom screen resolution, may be faster
-of.options.FULLSCREEN_MODE.tooltip.4=The selected resolution is used in fullscreen mode (F11).
-of.options.FULLSCREEN_MODE.tooltip.5=Lower resolutions should generally be faster.
+options.fullscreen.resolution=Fullscreen Mode
+options.fullscreen.resolution.tooltip.1=Fullscreen mode
+options.fullscreen.resolution.tooltip.2=  Default - use desktop screen resolution, slower
+options.fullscreen.resolution.tooltip.3=  WxH - use custom screen resolution, may be faster
+options.fullscreen.resolution.tooltip.4=The selected resolution is used in fullscreen mode (F11).
+options.fullscreen.resolution.tooltip.5=Lower resolutions should generally be faster.
 
 of.options.SHOW_FPS=Show FPS
 of.options.SHOW_FPS.tooltip.1=Shows compact FPS and render information.
@@ -720,7 +747,7 @@ of.options.SCREENSHOT_SIZE.tooltip.1=Screenshot Size
 of.options.SCREENSHOT_SIZE.tooltip.2=  Default - default screenshot size
 of.options.SCREENSHOT_SIZE.tooltip.3=  2x-4x - custom screenshot size
 of.options.SCREENSHOT_SIZE.tooltip.4=Capturing bigger screenshots may need more memory.
-of.options.SCREENSHOT_SIZE.tooltip.5=Not compatible with Fast Render and Antialiasing.
+of.options.SCREENSHOT_SIZE.tooltip.5=Not compatible with Antialiasing.
 of.options.SCREENSHOT_SIZE.tooltip.6=Requires GPU framebuffer support.
 
 of.options.SHOW_GL_ERRORS=Show GL Errors
